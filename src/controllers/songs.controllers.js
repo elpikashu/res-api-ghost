@@ -25,7 +25,7 @@ export const getSong = async (req,res )=>{
 
 
 export const getSongs= async(req,res) =>{
-    
+    res.header('Access-Control-Allow-Origin','*')
   try {
     const [rows] =await pool.query ('select * from songs')
     res.json(rows)
