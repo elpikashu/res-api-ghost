@@ -19,6 +19,8 @@ export const getAlbum = async(req,res)=>{
 
 export const getAlbums= async(req,res) =>{
     try {
+        res.header('Access-Control-Allow-Origin','*')
+
         const [rows] = await pool.query ('select * from albums')
         res.json(rows)
 

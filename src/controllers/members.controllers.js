@@ -20,6 +20,8 @@ export const getMember= async (req,res)=>{
 
 export const getMembers= async(req,res)=>{
     try {
+        res.header('Access-Control-Allow-Origin','*')
+
         const [rows] = await pool.query('select * from members ')
         res.json(rows)
 
@@ -33,7 +35,7 @@ export const getMembers= async(req,res)=>{
 export const createMember= async(req,res)=>{
    try {
     const {real_name, nickname, instrument, image}=req.body
-    const [rows]= await pool.query('insert into members (real_name,nickname,instrument,image) values(?,?,?,?)',[real_name,nickname,instrument,image])
+    const [rows]= await pool.query('insert into members (real_name,nickname,instrument,image) values(?,?,?,?);', [real_name,nickname,instrument,image])
 
     res.send({
         idMember:rows.insertId,

@@ -8,7 +8,7 @@ router.put('/members/:idMember',updateMember)
 
 router.delete('/members/:idMember',deleteMember)
 
-router.post('/members',createMember)
+router.post('/members/',createMember)
 
 router.get('/members/:idMember',getMember)
 
